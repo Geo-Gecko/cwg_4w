@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CWG Demo</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="./css/leaflet.css" />
+  <link rel="stylesheet" href="css/mobirise-icons/mobirise-icons.css">
+		<!--[if lte IE 8]><link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
+
+
+		<link href="./css/uganda.map.css" rel="Stylesheet" type="text/css">
+		<link rel="stylesheet" href="css/leaflet-sidebar.css">
+
+		<style>
+			body {
+				padding: 0;
+				margin: 0;
+			}
+
+			html, body, #map {
+				height: 100%;
+				font-size: 10pt;
+			}
+
+			.lorem {
+				font-style: italic;
+				color: #AAA;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+
+			<!-- Modal content -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<span class="close">&times;</span>
+					<p id="modal-header" class="custom-count-header" style="font-size: 16px;">Modal Header</p>
+				</div>
+				<table id="modal-body" class="modal-body">
+				</table>
+			</div>
+
+		</div>
+
+		<div id="sidebar-left" class="sidebar collapsed">
+			<!-- Nav tabs -->
+			<div class="sidebar-tabs">
+				<ul role="tablist">
+					<li><a href="#home" role="tab"><i class="fa fa-filter"></i></a></li>
+				</ul>
+
+				<ul role="tablist">
+					<li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+				</ul>
+			</div>
+
+			<!-- Tab panes -->
+			<div class="sidebar-content">
+				<div class="sidebar-pane" id="home">
+					<h1 class="sidebar-header">
+						Filters
+						<span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+					</h1>
+
+					<div class="menu-panel">
+						<p id="d3-map-refresh">Reset Filters</p>
+<!--						<img src = "./css/reset.svg" style="border-radius: 50px;width:30px;height:30px; box-shadow: 0px 5px 5px grey;" title = "Reset Filters" id= "reset">-->
+
+					</div>
+					<div class="list-container">
+						<div class="col-md-12">
+							<p class="custom-list-header">Partners <i class="glyphicon glyphicon-chevron-down"></i><span class="count">&nbsp;</span><span id="partner-header-total" class="count">0</span><span class="count">/</span><span id="partner-list-count" class="count">0</span></p>
+							<div id="agency-list" class="custom-list"></div>
+						</div>
+						<div class="col-md-12">
+							<p class="custom-list-header">Sectors <i class="glyphicon glyphicon-chevron-down"></i><span class="count">&nbsp;</span><span id="sector-header-total" class="count">0</span><span class="count">/</span><span id="sector-list-count" class="count">0</span></p>
+							<div id="sector-list" class="custom-list"></div>
+						</div>
+						<div class="col-md-12">
+							<p class="custom-list-header">Districts<i class="glyphicon glyphicon-chevron-down"></i><span class="count">&nbsp;</span><span id="parish-header-total" class="count">0</span><span class="count">/</span><span id="parish-list-count" class="count">0</span></p>
+							<div id="district-list" class="custom-list"></div>
+						</div>
+						<div class="col-md-12">
+							<p class="custom-list-header">Donors<i class="glyphicon glyphicon-chevron-down"></i><span class="count">&nbsp;</span><span id="donor-header-total" class="count">0</span><span class="count">/</span><span id="donor-list-count" class="count">0</span></p>
+							<div id="donor-list" class="custom-list"></div>
+						</div>
+						<div class="col-md-12">
+							<p class="custom-list-header">Actor Type<i class="glyphicon glyphicon-chevron-down"></i><span class="count">&nbsp;</span><span id="actor-type-header-total" class="count">0</span><span class="count">/</span><span id="actor-type-list-count" class="count">0</span></p>
+							<div id="actor-type-list" class="custom-list"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="sidebar-right" class="sidebar collapsed">
+			<!-- Nav tabs -->
+			<div class="sidebar-tabs">
+				<ul role="tablist">
+					<li><a href="#home1" role="tab"><i class="fa fa-bars"></i></a></li>
+				</ul>
+
+				<ul role="tablist">
+					<li><a href="#settings1" role="tab"><i class="fa fa-gear"></i></a></li>
+				</ul>
+			</div>
+
+			<!-- Tab panes -->
+			<div class="sidebar-content">
+				<div class="sidebar-pane" id="home1">
+					<h1 class="sidebar-header">
+						Results
+						<span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+					</h1>
+
+					<div class="top-panel col-md-8 col-sm-8">
+
+
+						<div class="head col-md-2 col-sm-2">
+							<p class="custom-count-header" style="font-size: 16px;"><br>Agencies </p>
+							<p id="agency-count" class="custom-count">0</p>
+						</div>
+						<div class=" head col-md-2 col-sm-2">
+							<p class="custom-count-header" style="font-size: 16px;"><br>Sectors </p>
+							<p id="sector-count" class="custom-count">0</p>
+						</div>
+					</div> <br><br><br><br><br><br>
+					<div class="top-panel col-md-8 col-sm-8">
+
+						<div class="head col-md-2 col-sm-2">
+							<p class="custom-count-header" style="font-size: 16px;"><br>Districts </p>
+							<p id="district-count" class="custom-count">0</p>
+						</div>
+						<div class="head col-md-2 col-sm-2">
+							<p class="custom-count-header" style="font-size: 16px;"><br>Beneficiaries </p>
+							<p id="beneficiary-count" class="custom-count">0</p>
+						</div>
+
+
+					</div><br><br><br><br><br><br><br><br><br>	
+					Who
+					<div id="page-wrap1" class="custom-list" style="border: 1px solid #ccc!important; height: 30vh !important;">
+						
+						
+
+					</div>
+					<br>
+					Where
+					<br>
+					<div id="page-wrap" class="custom-list" style="border: 1px solid #ccc!important; margin-bottom: 10px !important; height: 30vh !important;">
+						
+					</div>
+					
+					
+					<div class="col-md-12">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="d3-map-container" class="sidebar-map">
+			<div id="d3-map-wrapper"></div></div>
+
+
+		<script src="./js/leaflet.js"></script>
+
+		<script src="js/leaflet-sidebar.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+		<link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
+
+		<script src="./js/queue.v1.min.js"></script>
+
+		<script src="./js/d3.v3.min.js"></script>
+		<script src="./js/L.D3SvgOverlay.min.js"></script>
+
+		<script src="./js/uganda.map.js"></script>
+
+	</body>
+</html>
