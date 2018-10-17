@@ -348,6 +348,14 @@
 				.on("mouseover", function (d){
 				if(d.name === "key") {
 					d3.select(this).style("cursor", "pointer");
+					d3.select(this).style("text-decoration", "underline");
+					d3.select(this).style("text-decoration-color", "#85bb65");
+				}
+			}).on("mouseout", function (d){
+				if(d.name === "key") {
+					d3.select(this).style("cursor", "pointer");
+					d3.select(this).style("text-decoration", "none");
+					d3.select(this).style("text-decoration-color", "#85bb65");
 				}
 			});
 		}
@@ -432,6 +440,14 @@
 				.on("mouseover", function (d){
 				if(d.name === "key") {
 					d3.select(this).style("cursor", "pointer");
+					d3.select(this).style("text-decoration", "underline");
+					d3.select(this).style("text-decoration-color", "#85bb65");
+				}
+			}).on("mouseout", function (d){
+				if(d.name === "key") {
+					d3.select(this).style("cursor", "pointer");
+					d3.select(this).style("text-decoration", "none");
+					d3.select(this).style("text-decoration-color", "#85bb65");
 				}
 			});
 		}
