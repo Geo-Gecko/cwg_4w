@@ -13,7 +13,7 @@ html {
 }
 
 #header-text span {
-    background-color: #13988E;
+    background-color: #85bb65;
     padding: 0 14px 0 8px;
     margin: 0px 0 10px 0;
 	border-radius: 10px;
@@ -83,7 +83,7 @@ p.custom-count {
     font-family: Roboto, sans-serif;
     font-size:  1.4rem;
     font-weight: 700;
-    color: #13988E;
+    color: #85bb65;
     margin: 8px -4px -8px -4px;
     padding: 3px;
 	border-left: 3px solid #172031;
@@ -130,7 +130,7 @@ p.custom-count {
 }
 #d3-map-refresh:hover {
 	    
-    background: #13988E;
+    background: #85bb65;
     cursor: pointer;
 /*	opacity:.7;*/
 	color: white;
@@ -477,7 +477,7 @@ body.all-loaded {
 */
 
 .d3-active rect {
-	fill: #13988E !important;
+	fill: #85bb65 !important;
 }
 .custom-list svg {
 	cursor: pointer !important;
@@ -485,7 +485,7 @@ body.all-loaded {
 
 #agency-list span:hover {
 	text-decoration: underline !important;
-	text-decoration-color: #13988E !important;
+	text-decoration-color: #85bb65 !important;
 }
 
 .count {
@@ -496,7 +496,7 @@ p.custom-list-header .glyphicon {
     float: right;
     padding: 3px 10px 0 0;
     font-size: 1.4rem;
-    color: #13988E;
+    color: #85bb65;
 }
 
 /* The Modal (background) */
@@ -551,7 +551,7 @@ p.custom-list-header .glyphicon {
 
 .modal-header {
     padding: 4px 24px;
-    background-color: #13988E;
+    background-color: #85bb65;
     color: white;
 }
 

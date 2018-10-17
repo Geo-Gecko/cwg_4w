@@ -232,10 +232,10 @@
 
 		var _3w_attrib = 'Created by <a href="http://www.geogecko.com">Geo Gecko</a> and © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, Powered by <a href="https://d3js.org/">d3</a>';
 		var basemap = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_nolabels/{z}/{x}/{y}{r}.png', {
-			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-			subdomains: 'abcd',
-			maxZoom: 19
-		});
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+	subdomains: 'abcd',
+	maxZoom: 19
+});
 
 		basemap.addTo(map);
 		var sidebar = L.control.sidebar('sidebar-left').addTo(map);
@@ -260,7 +260,7 @@
 		var height = wrapper.node().offsetHeight || 480;
 		var color = d3.scale.linear().domain(domain) //http://bl.ocks.org/jfreyre/b1882159636cc9e1283a
 		.interpolate(d3.interpolateHcl)
-		.range([d3.rgb("#66f1c1"), d3.rgb('#172031')]); //#f597aa #a02842
+		.range([d3.rgb("#addd8e"), d3.rgb('#004529')]); //#f597aa #a02842
 		var tooltip = d3.select(map.getPanes().overlayPane)
 		.append("div")
 		.attr("class", "d3-tooltip d3-hide");
@@ -458,7 +458,6 @@
 				.each(function (d) {
 				d.properties.centroid = projection(d3.geo.centroid(d));
 				datasetNest.map(function (c) {
-					console.log(c);
 					if (c.key === d.properties.DNAME_06) {
 						d.properties._sectorList = d3.nest().key(function (a) {
 							return a.Sector;
@@ -962,7 +961,7 @@
 					.on("click", function (c) {
 					d3.selectAll(".labels").style("opacity", opacity);
 					var needRemove = $(d3.select(this).node()).hasClass("d3-active"); //d3.select(this).attr("class");//d3-active
-					d3.select(this).classed("d3-active", !needRemove).style("background", needRemove ? "transparent" : "#13988e");
+					d3.select(this).classed("d3-active", !needRemove).style("background", needRemove ? "transparent" : "#85bb65");
 					global.currentEvent = "district";
 					myFilter(c, global.currentEvent, needRemove);
 
@@ -998,7 +997,7 @@
 					// d3.select(this.parentNode).selectAll("p").style("background", "transparent");
 					// d3.select(this).style("background", "#8cc4d3");
 					var needRemove = $(d3.select(this).node()).hasClass("d3-active"); //d3.select(this).attr("class");//d3-active
-					d3.select(this).classed("d3-active", !needRemove).style("background", needRemove ? "transparent" :"#13988e");
+					d3.select(this).classed("d3-active", !needRemove).style("background", needRemove ? "transparent" :"#85bb65");
 					global.currentEvent = "sector";
 					myFilter(c, global.currentEvent, needRemove);
 					// myFilterBySector(c, needRemove);
@@ -1024,7 +1023,7 @@
 					.on("click", function (c) {
 
 					var needRemove = $(d3.select(this).node()).hasClass("d3-active"); //d3.select(this).attr("class");//d3-active
-					d3.select(this).classed("d3-active", !needRemove).style("background", needRemove ? "transparent" : "#13988e");
+					d3.select(this).classed("d3-active", !needRemove).style("background", needRemove ? "transparent" : "#85bb65");
 					// myFilterByAgency(c, needRemove);
 					global.currentEvent = "agency"
 					myFilter(c, global.currentEvent, needRemove);
@@ -1050,7 +1049,7 @@
 				})
 					.on("click", function (c) {
 					var needRemove = $(d3.select(this).node()).hasClass("d3-active"); //d3.select(this).attr("class");//d3-active
-					d3.select(this).classed("d3-active", !needRemove).style("background", needRemove ? "transparent" :"#13988e");
+					d3.select(this).classed("d3-active", !needRemove).style("background", needRemove ? "transparent" :"#85bb65");
 					// myFilterByAgency(c, needRemove);
 					global.currentEvent = "donor"
 					myFilter(c, global.currentEvent, needRemove);
@@ -1075,7 +1074,7 @@
 				// .style("background", "transparent")
 					.on("click", function (c) {
 					var needRemove = $(d3.select(this).node()).hasClass("d3-active"); //d3.select(this).attr("class");//d3-active
-					d3.select(this).classed("d3-active", !needRemove).style("background", needRemove ? "transparent" :"#13988e");
+					d3.select(this).classed("d3-active", !needRemove).style("background", needRemove ? "transparent" :"#85bb65");
 					// myFilterByAgency(c, needRemove);
 					global.currentEvent = "actor-type"
 					myFilter(c, global.currentEvent, needRemove);

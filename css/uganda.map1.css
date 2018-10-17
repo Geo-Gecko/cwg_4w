@@ -120,7 +120,7 @@
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #13988E;
+    background-color: #85bb65;
     color: white;
 }
 
@@ -141,7 +141,7 @@
     color: white;
 }
 .d3-active rect {
-	fill: #13988E !important;
+	fill: #85bb65 !important;
 }
 .custom-list svg {
 	cursor: pointer !important;
@@ -149,7 +149,7 @@
 
 #agency-list span:hover {
 	text-decoration: underline !important;
-	text-decoration-color: #13988E !important;
+	text-decoration-color: #85bb65 !important;
 }
 
 .count {
@@ -160,5 +160,5 @@ p.custom-list-header .glyphicon {
     float: right;
     padding: 3px 10px 0 0;
     font-size: 1.4rem;
-    color: #13988E;
+    color: #85bb65;
 }
